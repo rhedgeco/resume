@@ -1,8 +1,15 @@
-#import "github.typ": *
+#import "template.typ": *
 
-#show: github_file.with(
+#show: file-layout.with(
   filename: "resume.typ",
   source: "https://github.com/rhedgeco/resume",
+  toc: true,
 )
 
-Hello, World!
+= Ryan Hedgecock
+
+= Hello World
+
+== Sub Heading
+
+Hello world
