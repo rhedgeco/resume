@@ -2,8 +2,15 @@
 
 #show: file-layout.with(
   filename: "resume.typ",
-  source: "https://github.com/rhedgeco/resume",
-  toc: true,
+  source: "https://github.com/rhedgeco/resume/blob/main/resume.typ",
 )
 
-Hello World
+#resume_title(
+  firstname: "RYAN",
+  lastname: "HEDGECOCK",
+  linkedin: "rhedgeco",
+  github: "rhedgeco",
+  youtube: "rhedgeco",
+  website: "hedgecock.dev",
+  subtitle: "Software Engineer - Bay Area - US Citizen",
+)
