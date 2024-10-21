@@ -10,8 +10,9 @@ RUN cargo build -p typst-cli --release
 # create output
 FROM rust:1.82.0 as output
 
-# install just
+# install packages
 RUN cargo install just
+RUN apt-get update && apt-get install gnupg2 -y
 
 # copy typst to bin
 COPY --from=builder /typst/target/release/typst /usr/local/bin/typst
