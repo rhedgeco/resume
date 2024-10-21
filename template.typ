@@ -1,10 +1,3 @@
-// GLOBAL COLOR DEFINITIONS
-#let primary-color = rgb("#ff8104")
-#let secondary-color = rgb("#249ea0")
-#let text-color = rgb("#303030")
-#let stroke-color = rgb("#d1d9e0")
-#let background-color = rgb("#ffffff")
-
 // ICON DEFINITIONS
 #import "@preview/fontawesome:0.2.1": fa-icon
 #let file-icon = box(
@@ -13,11 +6,25 @@
 #let github-icon = box(
   fa-icon("github"),
 )
+#let linkedin-icon = box(
+  fa-icon("linkedin"),
+)
+#let youtube-icon = box(
+  fa-icon("youtube"),
+)
+#let globe-icon = box(
+  fa-icon("globe"),
+)
 
 #let file-layout(
   filename: "",
   source: "",
-  toc: false,
+  text-color: rgb("#303030"),
+  stroke-color: rgb("#d1d9e0"),
+  background-color: rgb("#ffffff"),
+  primary-color: rgb("#ff8104"),
+  secondary-color: rgb("#249ea0"),
+  font-size: 10pt,
   body,
 ) = {
   let filename = filename.trim()
@@ -34,17 +41,13 @@
   set text(
     fill: text-color,
     font: "Noto Sans",
-    size: 10pt,
+    size: font-size,
   )
 
-  show heading: head => {
-    link(here(), box("# "))
-    box(head)
-  }
-
   // build page
-  box(
+  block(
     width: 100%,
+    spacing: 0pt,
     radius: 0.5em,
     stroke: 1pt + stroke-color,
     {
@@ -53,25 +56,21 @@
         width: 100%,
         spacing: 0em,
         {
-          pad(
-            bottom: 1pt,
-            box(
-              stroke: (
-                bottom: 2pt + primary-color,
-              ),
-              pad(
-                rest: 0.8em,
-                {
-                  file-icon
-                  "  "
-                  filename
-                },
+          // render icon and filename
+          box(
+            pad(
+              bottom: 1pt,
+              box(
+                stroke: (bottom: 2pt + primary-color),
+                pad(bottom: 0.8em - 1pt, rest: 0.8em, [#file-icon #filename]),
               ),
             ),
           )
+
+          // render source button if available
           if source.trim() != "" {
-            place(
-              horizon + right,
+            h(1fr)
+            box(
               pad(
                 rest: 0.3em,
                 link(
@@ -95,56 +94,81 @@
         spacing: 0em,
         pad(
           rest: 0.8em,
-          {
-            // render table of contents
-            if toc {
-              place(
-                top + right,
-                block(
-                  radius: 0.25em,
-                  fill: primary-color.transparentize(80%),
-                  pad(
-                    rest: 0.5em,
-                    context {
-                      set align(left)
-                      let headings = query(heading)
-                      for heading in headings {
-                        if heading.depth == 1 {
-                          link(
-                            heading.location(),
-                            block(spacing: 0pt, [\# #heading.body]),
-                          )
-                        } else {
-                          text(size: 0.8em, block([#heading.body]))
-                        }
-                      }
-                    },
-                  ),
-                ),
-              )
-            }
-
-            // render the rest of the body
-            body
-          },
+          body,
         ),
       )
     },
   )
 
   // footer
-  text(
-    size: 0.8em,
-    weight: "bold",
-    fill: text-color.transparentize(75%),
-    [Updated #datetime.today().display("[month repr:long] [day], [year]")],
+  pad(
+    rest: 0.5em,
+    text(
+      size: 0.8em,
+      weight: "bold",
+      fill: text-color.transparentize(75%),
+      [
+        #h(1fr)
+        Updated #datetime.today().display("[month repr:long] [day], [year]")
+      ],
+    ),
   )
 }
 
 #let resume_title(
   firstname: "John",
   lastname: "Doe",
-  dark: false,
+  linkedin: "johndoe",
+  github: "",
+  youtube: "",
+  website: "",
+  subtitle: "",
+  text-color: rgb("#303030"),
+  stroke-color: rgb("#d1d9e0"),
+  background-color: rgb("#ffffff"),
+  primary-color: rgb("#fca854"),
+  secondary-color: rgb("#249ea0"),
 ) = {
-  "Hello World"
+  align(center)[
+    #text(size: 4em, weight: "bold", fill: primary-color)[#firstname ]
+    #text(size: 4em, weight: "bold", fill: text-color)[#lastname]
+    #block(
+      radius: 0.25em,
+      stroke: 1pt + stroke-color,
+      fill: stroke-color.transparentize(50%),
+      {
+        if linkedin.trim() != "" {
+          link(
+            "https://www.linkedin.com/in/" + linkedin,
+            box(pad(rest: 0.5em, [#linkedin-icon #linkedin])),
+          )
+        }
+
+        if github.trim() != "" {
+          link(
+            "https://github.com/" + github,
+            box(pad(rest: 0.5em, [#github-icon #github])),
+          )
+        }
+
+        if youtube.trim() != "" {
+          link(
+            "https://www.youtube.com/@" + youtube,
+            box(pad(rest: 0.5em, [#youtube-icon #youtube])),
+          )
+        }
+
+        if website.trim() != "" {
+          link(
+            "https://" + website,
+            box(pad(rest: 0.5em, [#globe-icon #website])),
+          )
+        }
+      },
+    )
+
+    #if subtitle.trim() != "" {
+      subtitle
+    }
+  ]
 }
