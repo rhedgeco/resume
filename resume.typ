@@ -6,10 +6,4 @@
   toc: true,
 )
 
-= Ryan Hedgecock
-
-= Hello World
-
-== Sub Heading
-
-Hello world
+Hello World

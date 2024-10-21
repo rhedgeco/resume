@@ -79,7 +79,7 @@
                   box(
                     radius: 0.25em,
                     fill: secondary-color.transparentize(80%),
-                    pad(rest: 0.5em, "View Source " + github-icon),
+                    pad(rest: 0.5em, [View Source #github-icon]),
                   ),
                 ),
               ),
