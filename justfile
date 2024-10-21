@@ -1,2 +1,2 @@
-compile FILE:
-    typst compile --font-path ./fonts {{FILE}}
+compile:
+    typst compile --font-path ./fonts resume.typ
