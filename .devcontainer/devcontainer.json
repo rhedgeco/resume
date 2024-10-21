@@ -4,8 +4,7 @@
         "dockerfile": "Dockerfile"
     },
     "features": {
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/git-lfs:1": {}
+        "ghcr.io/devcontainers/features/git:1": {}
     },
     "customizations": {
         "vscode": {
@@ -14,11 +13,6 @@
                 "nefrob.vscode-just-syntax"
             ],
             "settings": {
-                "files.eol": "\n",
-                "editor.formatOnSave": true,
-                "[typst]": {
-                    "editor.formatOnSave": true
-                },
                 "tinymist": {
                     "formatterMode": "typstyle",
                     "fontPaths": [
