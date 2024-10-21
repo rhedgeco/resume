@@ -2,7 +2,7 @@
 
 #show: github_file.with(
   filename: "resume.typ",
-  source: "",
+  source: "https://github.com/rhedgeco/resume",
 )
 
 Hello, World!
