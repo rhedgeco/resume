@@ -1,6 +1,33 @@
 #let default-primary-color = rgb("#fca854")
 #let default-secondary-color = rgb("#5bd8c3")
 
+// define default themes
+#let light-theme(
+  primary: default-primary-color,
+  secondary: default-secondary-color,
+) = {
+  (
+    text-color: rgb("#303030"),
+    stroke-color: rgb("#d1d9e0"),
+    background-color: rgb("#ffffff"),
+    primary-color: primary,
+    secondary-color: secondary,
+  )
+}
+#let dark-theme(
+  primary: default-primary-color,
+  secondary: default-secondary-color,
+) = {
+  (
+    text-color: rgb("#c6c6c6"),
+    stroke-color: rgb("#2b2b2b"),
+    background-color: rgb("#1f1f1f"),
+    primary-color: primary,
+    secondary-color: secondary,
+  )
+}
+#let default-theme = light-theme()
+
 // ICON DEFINITIONS
 #import "@preview/fontawesome:0.2.1": fa-icon
 #let file-icon = box(
@@ -22,12 +49,7 @@
 #let file-layout(
   filename: "",
   source: "",
-  text-color: rgb("#303030"),
-  stroke-color: rgb("#d1d9e0"),
-  background-color: rgb("#ffffff"),
-  primary-color: default-primary-color,
-  secondary-color: default-secondary-color,
-  font-size: 10pt,
+  theme: default-theme,
   body,
 ) = {
   let filename = filename.trim()
@@ -38,22 +60,21 @@
   // set default page and text settings
   set page(
     paper: "us-letter",
-    fill: background-color,
+    fill: theme.background-color,
     margin: 1em,
   )
   set text(
-    fill: text-color,
+    fill: theme.text-color,
     font: "Noto Sans",
-    size: font-size,
   )
   show heading: heading => (
     block(context {
-      place(dx: -0.8em, text(fill: text-color.transparentize(50%), link(here(), "#")))
+      place(dx: -0.8em, text(fill: theme.text-color.transparentize(50%), link(here(), "#")))
       heading.body
       if heading.level == 1 {
         box(
           width: 1fr,
-          line(length: 100%, stroke: 1pt + stroke-color),
+          pad(left: 0.25em, line(length: 100%, stroke: 1pt + theme.stroke-color)),
         )
       }
     })
@@ -64,7 +85,7 @@
     width: 100%,
     spacing: 0pt,
     radius: 0.5em,
-    stroke: 1pt + stroke-color,
+    stroke: 1pt + theme.stroke-color,
     {
       // file header
       block(
@@ -76,7 +97,7 @@
             pad(
               bottom: 1pt,
               box(
-                stroke: (bottom: 2pt + primary-color),
+                stroke: (bottom: 2pt + theme.primary-color),
                 pad(bottom: 0.8em - 1pt, rest: 0.8em, [#file-icon #filename]),
               ),
             ),
@@ -92,7 +113,7 @@
                   source,
                   box(
                     radius: 0.25em,
-                    fill: secondary-color.transparentize(80%),
+                    fill: theme.secondary-color.transparentize(80%),
                     pad(rest: 0.5em, [View Source #github-icon]),
                   ),
                 ),
@@ -101,7 +122,7 @@
           }
         },
       )
-      line(length: 100%, stroke: 1pt + stroke-color)
+      line(length: 100%, stroke: 1pt + theme.stroke-color)
 
       // file body
       block(
@@ -123,7 +144,7 @@
           text(
             size: 0.8em,
             weight: "bold",
-            fill: text-color.transparentize(75%),
+            fill: theme.text-color.transparentize(75%),
             [
               Updated #datetime.today().display("[month repr:long] [day], [year]")
             ],
@@ -142,23 +163,23 @@
   youtube: "",
   website: "",
   subtitle: "",
-  text-color: rgb("#303030"),
-  stroke-color: rgb("#d1d9e0"),
-  background-color: rgb("#ffffff"),
-  primary-color: default-primary-color,
-  secondary-color: default-secondary-color,
+  theme: default-theme,
 ) = {
   pad(
     top: 2em,
     bottom: 1em,
     align(center)[
-      #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: primary-color)[#firstname]
+      #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: theme.primary-color)[#firstname]
       #text("  ")
-      #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: text-color)[#lastname]
+      #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: theme.text-color)[#lastname]
+
+      #if subtitle.trim() != "" {
+        subtitle
+      }
       #block(
         radius: 0.25em,
-        stroke: 1pt + stroke-color,
-        fill: stroke-color.transparentize(50%),
+        stroke: 1pt + theme.stroke-color,
+        fill: theme.stroke-color.transparentize(50%),
         {
           if linkedin.trim() != "" {
             link(
@@ -189,15 +210,20 @@
           }
         },
       )
-
-      #if subtitle.trim() != "" {
-        subtitle
-      }
     ],
   )
 }
 
-#let timeline_item(start: str, end: str, body) = [
-  #start - #end
-  #body
-]
+#let timeline_item(
+  start: "",
+  end: str,
+  title: str,
+  company: "",
+  link: "",
+  theme: default-theme,
+  body,
+) = {
+  block({
+    title
+  })
+}
