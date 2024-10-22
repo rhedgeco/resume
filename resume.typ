@@ -14,3 +14,14 @@
   website: "hedgecock.dev",
   subtitle: "Software Engineer - Bay Area - US Citizen",
 )
+
+= Objective
+Software Development Engineer
+
+= Education
+*San Jose State University* - Software Engineering - 2024
+
+= Work Experience
+#timeline_item(start: "hello", end: "world")[
+  hello world
+]
