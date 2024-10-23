@@ -69,7 +69,7 @@
   )
   show heading: heading => (
     block(context {
-      place(dx: -0.8em, text(fill: theme.text-color.transparentize(50%), link(here(), "#")))
+      place(dx: -0.8em, link(here(), text(fill: theme.primary-color)[\#]))
       heading.body
       if heading.level == 1 {
         box(
@@ -125,6 +125,7 @@
       line(length: 100%, stroke: 1pt + theme.stroke-color)
 
       // file body
+      show link: set text(fill: theme.secondary-color)
       block(
         width: 100%,
         spacing: 0em,
@@ -181,6 +182,7 @@
         stroke: 1pt + theme.stroke-color,
         fill: theme.stroke-color.transparentize(50%),
         {
+          show link: set text(fill: theme.text-color)
           if linkedin.trim() != "" {
             link(
               "https://www.linkedin.com/in/" + linkedin,
@@ -212,18 +214,4 @@
       )
     ],
   )
-}
-
-#let timeline_item(
-  start: "",
-  end: str,
-  title: str,
-  company: "",
-  link: "",
-  theme: default-theme,
-  body,
-) = {
-  block({
-    title
-  })
 }
