@@ -39,7 +39,7 @@ Software Development Engineer
   - Assessed customer issues in real time to push sensitive patches.
   - Solved integration issues between on-premises system hardware and cloud infrastructure.
 
-- *Software Engineer* - #link("https://www.elekta.com/")[*Elekta*]\ May21 - Oct21
+- *Software Development Intern* - #link("https://www.elekta.com/")[*Elekta*]\ May21 - Oct21
   - Built analytics tooling in C\# for internal database management of patient data.
   - Constructed new database integrations and built a new GraphQL backend layer.
 
@@ -48,7 +48,7 @@ Software Development Engineer
     - Used to generate synthetic training data for AI machine learning inference models.
   - Packaged self-contained machine learning #link("https://github.com/aotuai/capsule-zoo")[capsules] in python for our AI platform.
 
-- *Software Engineer* - #link("https://www.whizkidzcc.com/")[*WhizKidz*]\ July17 - Oct19
+- *Programming Instructor* - #link("https://www.whizkidzcc.com/")[*WhizKidz*]\ July17 - Oct19
   - Taught programming classes for Java, Python, C\#, Lua.
   - Taught game and modelling classes covering Unity Engine and Blender.
 
