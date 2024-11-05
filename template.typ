@@ -156,6 +156,60 @@
   )
 }
 
+#let title_content(
+  firstname: "John",
+  lastname: "Doe",
+  linkedin: "johndoe",
+  github: "",
+  youtube: "",
+  website: "",
+  subtitle: "",
+  theme: default-theme,
+) = [
+  #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: theme.primary-color)[#firstname]
+  #text("  ")
+  #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: theme.text-color)[#lastname]
+
+  #if subtitle.trim() != "" {
+    subtitle
+  }
+  #block(
+    radius: 0.25em,
+    stroke: 1pt + theme.stroke-color,
+    fill: theme.stroke-color.transparentize(50%),
+    {
+      show link: set text(fill: theme.text-color)
+      if linkedin.trim() != "" {
+        link(
+          "https://www.linkedin.com/in/" + linkedin,
+          box(pad(rest: 0.5em, [#linkedin-icon #linkedin])),
+        )
+      }
+
+      if github.trim() != "" {
+        link(
+          "https://github.com/" + github,
+          box(pad(rest: 0.5em, [#github-icon #github])),
+        )
+      }
+
+      if youtube.trim() != "" {
+        link(
+          "https://www.youtube.com/@" + youtube,
+          box(pad(rest: 0.5em, [#youtube-icon #youtube])),
+        )
+      }
+
+      if website.trim() != "" {
+        link(
+          "https://" + website,
+          box(pad(rest: 0.5em, [#globe-icon #website])),
+        )
+      }
+    },
+  )
+]
+
 #let resume_title(
   firstname: "John",
   lastname: "Doe",
@@ -170,48 +224,60 @@
     top: 2em,
     bottom: 1em,
     align(center)[
-      #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: theme.primary-color)[#firstname]
-      #text("  ")
-      #text(font: "JetBrains Mono", size: 4em, weight: "black", fill: theme.text-color)[#lastname]
-
-      #if subtitle.trim() != "" {
-        subtitle
-      }
-      #block(
-        radius: 0.25em,
-        stroke: 1pt + theme.stroke-color,
-        fill: theme.stroke-color.transparentize(50%),
-        {
-          show link: set text(fill: theme.text-color)
-          if linkedin.trim() != "" {
-            link(
-              "https://www.linkedin.com/in/" + linkedin,
-              box(pad(rest: 0.5em, [#linkedin-icon #linkedin])),
-            )
-          }
-
-          if github.trim() != "" {
-            link(
-              "https://github.com/" + github,
-              box(pad(rest: 0.5em, [#github-icon #github])),
-            )
-          }
-
-          if youtube.trim() != "" {
-            link(
-              "https://www.youtube.com/@" + youtube,
-              box(pad(rest: 0.5em, [#youtube-icon #youtube])),
-            )
-          }
-
-          if website.trim() != "" {
-            link(
-              "https://" + website,
-              box(pad(rest: 0.5em, [#globe-icon #website])),
-            )
-          }
-        },
+      #title_content(
+        firstname: firstname,
+        lastname: lastname,
+        linkedin: linkedin,
+        github: github,
+        youtube: youtube,
+        website: website,
+        subtitle: subtitle,
+        theme: theme,
       )
     ],
+  )
+}
+
+#let cover_letter_title(
+  firstname: "John",
+  lastname: "Doe",
+  linkedin: "johndoe",
+  github: "",
+  youtube: "",
+  website: "",
+  subtitle: "",
+  theme: default-theme,
+) = {
+  block(
+    height: 10em,
+    pad(
+      top: 2em,
+      {
+        place(
+          top + left,
+          box(
+            width: 8em,
+            height: 8em,
+            radius: 2em,
+            clip: true,
+            stroke: 1pt + theme.primary-color,
+            image("profile.jpg"),
+          ),
+        )
+        pad(
+          left: 9em,
+          title_content(
+            firstname: firstname,
+            lastname: lastname,
+            linkedin: linkedin,
+            github: github,
+            youtube: youtube,
+            website: website,
+            subtitle: subtitle,
+            theme: theme,
+          ),
+        )
+      },
+    ),
   )
 }
