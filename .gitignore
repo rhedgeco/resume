@@ -1,1 +1,5 @@
+# ignore all PDF files
 *.pdf
+
+# ignore variants directory
+variants/
