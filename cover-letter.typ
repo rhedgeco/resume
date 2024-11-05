@@ -26,3 +26,5 @@ I started writing code when I was about 10 years old. I was initially interested
 
 My professional journey as a software engineer started shortly after high-school after being recruited
 by a #link("https://aotu.ai")[machine learning startup]. I was lucky because the people there could see my talent and put me in charge of R&D for developing a #link("https://aotu.ai/en/synthall/")[platform] for generating synthetic training data for vision models. Unfortunately at some point we started running out of money and I had to step down. From there I worked briefly in medical tech, and enjoyed my time at #link("https://www.komprise.com/")[another startup] working on backend services for cloud data migration.
+
+I decided to go back to school to complete my degree in software engineering from San Jose State University, and am now itching to get back to working on the most cutting edge technology I can find.
