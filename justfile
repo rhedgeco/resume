@@ -1,2 +1,2 @@
 compile FILE:
-    typst compile --font-path ./fonts {{FILE}}
+    typst compile --font-path ./fonts --root . {{FILE}}
