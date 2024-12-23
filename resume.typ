@@ -50,7 +50,7 @@ Software Development Engineer
 
 
 = Education
-*San Jose State University* - Software Engineering - 2024
+*San Jose State University* - Software Engineering
 
 = Passion Projects
 - #link("https://github.com/rhedgeco/boba-engine")[boba-engine] - A modern game engine written in rust.
