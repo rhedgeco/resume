@@ -1,6 +1,6 @@
 #import "template.typ": *
 
-#set text(size: 10.5pt)
+#set text(size: 10.2pt)
 #let theme = light-theme()
 #let theme = dark-theme()
 #show: file-layout.with(
@@ -23,17 +23,17 @@
 = Objective
 Software Development Engineer
 
-= Education
-*San Jose State University* - Software Engineering - 2024
-
 = Professional Skills
-- *Programming Languages* - Proven fluency in *C\#, Rust, Python, Java, JavaScript/Typescript*.
-- *Development Experience* - 4 years of professional development experience working on large systems.
-- *Tooling* - Experienced a range of tools including: *git, vscode, jet-brains, git-actions and other CI*.
+- *Programming Languages* - Proven fluency in *Rust, C\#, Python, Java, JavaScript/Typescript*.
+- *Development Experience* - 5+ years of professional development experience working on large systems.
+- *Tooling* - Experienced a range of tools including: *linux, git, windows, osx, vscode, jet-brains, git-actions and other CI*.
 
 = Work Experience
-- *Software Contractor/Consultant*\ Nov22 - Present
-
+- *Software Engineer* - #link("https://tech.walmart.com")[*Walmart Labs*] \ Oct24 - Present
+  - Contributed to emerging `rust` backend systems for Walmart and Sams Club.
+  - Designed `async` code patterns for readable and high performance applications.
+  - Performed deployment and performance testing of large distributed rust projects.
+- *Software Consultant*\ Nov22 - Oct24
 - *Software Engineer* - #link("https://www.komprise.com/")[*Komprise*]\ Oct21 - Aug22
   - Contributed to and built critical data migration infrastructure using Java.
   - Assessed customer issues in real time to push sensitive patches.
@@ -48,9 +48,9 @@ Software Development Engineer
     - Used to generate synthetic training data for AI machine learning inference models.
   - Packaged self-contained machine learning #link("https://github.com/aotuai/capsule-zoo")[capsules] in python for our AI platform.
 
-- *Programming Instructor* - #link("https://www.whizkidzcc.com/")[*WhizKidz*]\ July17 - Oct19
-  - Taught programming classes for Java, Python, C\#, Lua.
-  - Taught game and modelling classes covering Unity Engine and Blender.
+
+= Education
+*San Jose State University* - Software Engineering - 2024
 
 = Passion Projects
 - #link("https://github.com/rhedgeco/boba-engine")[boba-engine] - A modern game engine written in rust.
