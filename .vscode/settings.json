@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.typ": "typst"
+    },
+    "tinymist.fontPaths": [
+        "./fonts"
+    ]
+}
