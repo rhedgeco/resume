@@ -2,7 +2,7 @@
 
 #set text(size: 10.2pt)
 #let theme = light-theme()
-#let theme = dark-theme()
+#let theme = dark-theme() // comment out to use light theme
 #show: file-layout.with(
   filename: "resume.typ",
   source: "https://github.com/rhedgeco/resume/blob/main/resume.typ",
