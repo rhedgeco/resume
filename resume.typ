@@ -44,7 +44,7 @@
   - Built analytics tooling in C\# for internal database management of patient data.
   - Constructed new database integrations and built a new GraphQL backend layer.
 
-- *Software Engineer* - #link("https://aotu.ai/")[*AOTU*]\ Oct18 - May21
+- *Software Engineer* - #link("https://aotu.ai/")[*aotu.ai*]\ Oct18 - May21
   - Lead engineer building a synthetic rendering platform #link("https://aotu.ai/synthall")[Synthall] using C\#, python, and Unity Engine.
     - Used to generate synthetic training data for AI machine learning inference models.
 
